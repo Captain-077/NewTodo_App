@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MdCheck,MdDeleteForever } from "react-icons/md";
+import { MdCheck, MdDeleteForever } from "react-icons/md";
 
 
 export default function Todo() {
@@ -28,6 +28,21 @@ export default function Todo() {
     }
 
 
+    const handleDelete = (value) => {
+
+        // console.log(value);
+
+        const updatedTask = task.filter((item) => {
+            if (item !== value) {
+                return item;
+            }
+        })
+        console.log(updatedTask)
+
+        setTask(updatedTask);
+
+    }
+
     return (
         <section className="todo-container">
             <header>
@@ -49,7 +64,7 @@ export default function Todo() {
                         return <li key={index} className='todo-item'>
                             <span>{item}</span>
                             <button className='checkbtn'><MdCheck /></button>
-                            <button className='deletebtn'><MdDeleteForever/></button>
+                            <button className='deletebtn' key={index} onClick={() => handleDelete(item)}><MdDeleteForever /></button>
                         </li>
                     })
                 }

@@ -13,11 +13,16 @@ export default function Todo() {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
+        if (task.includes(inputValue)){
+            setInputValue("");
+            return;
+        }
+
         if (inputValue !== "") {
             setTask((prev) => [...prev,inputValue]);
         }
 
-        console.log(task)
+        setInputValue("");
     }
 
 

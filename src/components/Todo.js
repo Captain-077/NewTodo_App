@@ -42,6 +42,10 @@ export default function Todo() {
         setTask(updatedTask);
 
     }
+const handleEmpty = () => {
+    setTask([]);
+}
+
 
     return (
         <section className="todo-container">
@@ -70,6 +74,7 @@ export default function Todo() {
                 }
 
             </section>
+            <section><button className='clear-btn' onClick={handleEmpty}>Clear all</button></section>
         </section>
     )
 }

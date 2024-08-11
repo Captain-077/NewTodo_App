@@ -6,7 +6,7 @@ export default function Todo() {
 
     const [inputValue, setInputValue] = useState("");
     const [task, setTask] = useState([])
-
+const [check,setCheck] = useState(false)
 
     const handlechange = (value) => {
         setInputValue(value);
@@ -42,9 +42,15 @@ export default function Todo() {
         setTask(updatedTask);
 
     }
-const handleEmpty = () => {
-    setTask([]);
-}
+
+    const handleEmpty = () => {
+        setTask([]);
+    }
+
+    const handleCheck = (target) => {
+        if(target = 
+        setCheck(true)
+    }
 
 
     return (
@@ -66,8 +72,8 @@ const handleEmpty = () => {
                     task.map((item, index) => {
 
                         return <li key={index} className='todo-item'>
-                            <span>{item}</span>
-                            <button className='checkbtn'><MdCheck /></button>
+                            <span className={``}>{item}</span>
+                            <button className='checkbtn' key={index} onClick ={() => handleCheck(item)}><MdCheck /></button>
                             <button className='deletebtn' key={index} onClick={() => handleDelete(item)}><MdDeleteForever /></button>
                         </li>
                     })
